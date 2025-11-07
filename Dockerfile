@@ -1,16 +1,19 @@
-# Imagen oficial de pgAdmin
 FROM dpage/pgadmin4:latest
 
-# Variables de entorno obligatorias
+# Cambiamos al usuario root solo para preparar permisos
+USER root
+
+# Damos permisos al directorio de pgAdmin
+RUN chmod -R 777 /var/lib/pgadmin /var/log/pgadmin /pgadmin4
+
+# Volvemos a un usuario sin privilegios
+USER pgadmin
+
 ENV PGADMIN_DEFAULT_EMAIL=raul.de1@isepceu.es
 ENV PGADMIN_DEFAULT_PASSWORD=123456
 ENV PGADMIN_LISTEN_PORT=10000
-
-# Render usa esta variable $PORT, así que la igualamos
 ENV PORT=10000
 
-# Exponemos el puerto
 EXPOSE 10000
 
-# Comando de inicio del contenedor (pgAdmin arranca solo con esta imagen)
-CMD ["/entrypoint.sh"]
+CMD ["python3", "/pgadmin4/pgAdmin4.py"]
