@@ -1,0 +1,12 @@
+services:
+  - type: web
+    name: pgadmin
+    env: docker
+    plan: free
+    dockerfilePath: ./Dockerfile
+    autoDeploy: true
+    envVars:
+      - key: PGADMIN_DEFAULT_EMAIL
+        value: admin@example.com
+      - key: PGADMIN_DEFAULT_PASSWORD
+        value: admin123
