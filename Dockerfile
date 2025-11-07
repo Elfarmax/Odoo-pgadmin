@@ -2,7 +2,7 @@
 FROM dpage/pgadmin4:latest
 
 # Variables de entorno obligatorias
-ENV PGADMIN_DEFAULT_EMAIL=raul.de1@isepceu.es.com
+ENV PGADMIN_DEFAULT_EMAIL=raul.de1@isepceu.es
 ENV PGADMIN_DEFAULT_PASSWORD=123456
 ENV PGADMIN_LISTEN_PORT=10000
 
