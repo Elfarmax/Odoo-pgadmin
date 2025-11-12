@@ -4,3 +4,17 @@ services:
     env: docker
     plan: free
     dockerfilePath: ./Dockerfile
+    envVars:
+      - key: PGADMIN_DEFAULT_EMAIL
+        value: admin@example.com
+      - key: PGADMIN_DEFAULT_PASSWORD
+        value: admin123
+      - key: PGADMIN_LISTEN_PORT
+        value: "10000"
+      - key: PORT
+        value: "10000"
+    ports:
+      - port: 10000
+        handlers:
+          - http
+          - tls
